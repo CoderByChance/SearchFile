@@ -11,11 +11,11 @@ using namespace std;
 class Parser {	
 	string file_path;
 	fstream stream;
-	//thread parsing_thread_handle;
+	const string delimiters;
 	multimap<string, int> symbol_table;
 public:
-	Parser(const string& file_path);
+	Parser(const string & _file_path, const char* _delim = " \n");
 	~Parser();	
 	void start();	
-	void searchResult(string& token);
+	void query(string& token);
 };

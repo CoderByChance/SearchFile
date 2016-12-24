@@ -1,7 +1,7 @@
 // SearchFile.cpp : Defines the entry point for the console application.
 //
 
-//#include "stdafx.h"
+#include "stdafx.h"
 #include <iostream>
 #include <string>
 #include "Parser.h"
@@ -15,13 +15,17 @@ int main()
 	cin >> file_path;
 	
 	Parser parser(file_path);
-	parser.start();
+	try {
+		parser.start();
+	}
+	catch (const char* exc) { cout << exc << endl; }
+	
 
 	string token;
 	cout << "Enter search text : ";
 	cin >> token;
 
-	parser.searchResult(token);
+	parser.query(token);
 	
     return 0;
 }
